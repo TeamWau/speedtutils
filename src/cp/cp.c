@@ -30,7 +30,7 @@ int main( int argc, char** argv ) {
      * We make our mapping read only and private (since it won't change)
      * No offsets.
      */
-    buf = mmap( 0, s.st_size, PROT_READ, MAP_PRIVATE, infile, 0 );
+    buf = mmap( 0, s.st_size, PROT_READ, MAP_SHARED, infile, 0 );
 
     if( buf != ( void* ) - 1 ) {
         fwrite_unlocked( buf, s.st_size, 1, outfile ); //write everything from mapped memory to the output file
