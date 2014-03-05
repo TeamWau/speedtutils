@@ -15,7 +15,6 @@ int main( int argc, char** argv ) {
         fclose( newfile );
     } else {
         char* filename = argv[1];
-        time_t mtime;
         struct utimbuf newtime;
 
         newtime.actime = time(NULL);
