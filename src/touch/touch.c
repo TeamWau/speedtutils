@@ -3,6 +3,9 @@
 #include <time.h>
 #include <utime.h>
 
+#define PROGRAM_NAME "touch"
+#define AUTHORS "fauxm"
+
 int main( int argc, char** argv ) {
     struct stat f;
 

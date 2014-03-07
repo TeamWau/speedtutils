@@ -6,6 +6,8 @@
 #include <unistd.h>
 #include <fcntl.h>
 
+#define PROGRAM_NAME "cat"
+#define AUTHORS "fauxm, cxl"
 
 int main( int argc, char** argv ) {
 
