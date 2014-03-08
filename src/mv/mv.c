@@ -18,17 +18,18 @@
 int main( int argc, char** argv ) {
 
     if( argc < 2 ) {
-        printf("%s - memory mapping equivalent to `mv'\nProvides high-speed file move\n\nError: please specify a file name!\nUsage: %s <original> <copy>\n", argv[0], argv[0] );
-        return( 1 );
+        printf("%s - memory mapping equivalent to `mv'\nProvides high-speed file move\n\nError: please specify a file name!\nUsage: %s <original> <new>\n", argv[0], argv[0] );
+        return 1;
     }
 
     char *buf;
     struct stat s;
     int infile = open( argv[1], O_RDONLY ); //explicitly define the input file as read only
+
     if ( infile < 0 ) {
-        perror( "Error: " ); 
+        perror( "Error" ); 
         printf( "\nAbort! Abort!\n" );
-        return( 1 );
+        return 2;
     }
     FILE* outfile = fopen( argv[2], "w" );
 
@@ -44,9 +45,12 @@ int main( int argc, char** argv ) {
         fwrite_unlocked( buf, s.st_size, 1, outfile ); //write everything from mapped memory to the output file
         munmap( buf, s.st_size ); //free up the memory we mapped
     }
+
     if(remove (argv[1]) == 0){
         return 0;
-    } else {
+    } 
+    
+    else {
         perror(argv[1]);
         return 1;
     }
