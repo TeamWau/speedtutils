@@ -4,7 +4,7 @@ Information for Devs
 This file provides some basic information and style guidelines intended for programmers on the speedutils project.
 To keep some uniformity, we need to have some standard code styling.
 
-For standard C code, please follow this structure (with some variation; not putting an extra space between parentheses and their contents is fine):
+For standard C code, please follow this structure (or some variation; not putting an extra space between parentheses and their contents is fine):
 
     /* Adds arg1 with arg2 */
     int function( int arg1, int arg2 ) {
@@ -37,4 +37,4 @@ Return Values
 
 * `0` - successful completion of program
 * `1` - minor issue (not invoking with commands if the program requires it, for example)
-* `1` - major issue (file not found if trying to work with a file)
+* `2` - major issue (file not found if trying to work with a file)
