@@ -8,7 +8,7 @@ int main( int argc, char **argv ) {
     int time;
 
     if( argc != 2 ) {
-        fprintf(stderr, "usage: %s time\n", argv[0]);
+        fprintf(stderr, "usage: %s <time>\n", argv[0]);
         return 1;
     }
 
