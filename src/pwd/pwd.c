@@ -1,18 +1,20 @@
-#include	<stdlib.h>
-#include	<stdio.h>
-#include	<unistd.h>
-#include	<limits.h>
-char	name[PATH_MAX+1];
+#include <stdio.h>
+#include <unistd.h>
+#include <limits.h>
 
-main()
-{
-	int length;
-	if (getcwd(name, PATH_MAX + 1) == (char *)0) {
-		fprintf(stderr, "pwd: cannot determine current directory!\n");
-		exit(2);
+#define PROGRAM_NAME "PWD"
+#define AUTHORS "blackfox, fauxm"
+
+int main( int argc, char **argv ) {
+
+    char pwd[PATH_MAX];
+
+	if ( getcwd( pwd, PATH_MAX ) == NULL ) {
+		fprintf( stderr, "%s: cannot determine current directory!\n", argv[0] );
+		return 1;
 	}
-	length = strlen(name);
-	name[length] = '\n';
-	write(1, name, length + 1);
-	exit(0);
+
+    printf( "%s\n", pwd );
+
+	return 0;
 }
