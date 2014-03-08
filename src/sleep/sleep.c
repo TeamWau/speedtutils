@@ -5,21 +5,20 @@
 #define AUTHORS "blackfox, fauxm"
 
 int main( int argc, char **argv ) {
-    int c, n;
-    char    *s;
+    int time;
 
-    n = 0;
-    if(argc != 2) {
-        fprintf(stderr, "usage: sleep time\n");
-        return(0);
+    if( argc != 2 ) {
+        fprintf(stderr, "usage: %s time\n", argv[0]);
+        return 1;
     }
-    s = argv[1];
-    while((c = *s++)) {
-        if(c<'0' || c>'9') {
-            fprintf( stderr, "%s: bad character in argument\n", argv[0] );
-            return(0);
-        }
-        n = n*10 + c - '0';
+
+//todo: make this catch *all* letters in argv[1], currently it only fails if there's one at the start.
+    if( ( time = atoi( argv[1] ) ) != NULL ) { 
+        sleep( time );
+        return 0;
     }
-    sleep(n);
+    else {
+        fprintf( stderr, "%s: error: invalid character in argument\n", argv[0] );
+        return 1;
+    }
 }
