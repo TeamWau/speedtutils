@@ -11,7 +11,7 @@ int main( int argc, char **argv ) {
 
 	if ( getcwd( pwd, PATH_MAX ) == NULL ) {
 		fprintf( stderr, "%s: cannot determine current directory!\n", argv[0] );
-		return 1;
+		return 2;
 	}
 
     printf( "%s\n", pwd );

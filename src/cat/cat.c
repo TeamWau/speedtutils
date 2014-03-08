@@ -13,16 +13,16 @@ int main( int argc, char** argv ) {
 
     if( argc < 2 ) {
         printf("%s - memory mapping equivalent to `cat'\nProvides high-speed file reads\n\nError: please specify a file name!\nUsage: %s <filename>\n", argv[0], argv[0] );
-        return( 1 );
+        return 1;
     }
 
     char *buf;
     struct stat s;
     int infile = open( argv[1], O_RDONLY ); //explicitly define the file as read only
     if ( infile < 0 ) {
-        perror( "Error: " ); 
+        perror( "Error" ); 
         printf( "\nAbort! Abort!\n" );
-        return( 1 );
+        return 2;
     }
 
     fstat( infile, &s ); //get data about our file, store it in the struct
@@ -38,5 +38,5 @@ int main( int argc, char** argv ) {
         munmap( buf, s.st_size ); //free up the memory we mapped
     }
 
-    return( 0 );
+    return 0;
 }
