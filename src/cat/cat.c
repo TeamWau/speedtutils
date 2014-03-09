@@ -9,6 +9,10 @@
 #define PROGRAM_NAME "cat"
 #define AUTHORS "fauxm, cxl"
 
+/*
+TODO: Handle input from stdin
+*/
+
 int main( int argc, char** argv ) {
 
     if( argc < 2 ) {

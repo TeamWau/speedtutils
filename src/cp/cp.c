@@ -9,6 +9,10 @@
 #define PROGRAM_NAME "cp"
 #define AUTHORS "fauxm, cxl"
 
+/*
+TODO: Check if destination file exists in order to prevent accidental overwrites
+*/
+
 int main( int argc, char** argv ) {
 
     if( argc < 2 ) {

@@ -10,6 +10,10 @@
 #define PROGRAM_NAME "base64"
 #define AUTHORS "cxl"
 
+/*
+TODO: Handle input from stdin
+*/
+
 const static int mod_tl[] = {0, 2, 1};
 const static char enc_tl[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
                               'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
@@ -116,6 +120,12 @@ int main( int argc, char** argv ) {
     struct stat s;
     int encoding = 1;
     int opt, infile;
+
+
+    if( argc < 2 ) {
+        printf("%s - equivalent to `base64'\nEncodes and decodes files\n\nError: please specify a file name!\nUsage: \nEncoding: %s <filename>\nDecoding: %s -d <filename>\n", argv[0], argv[0], argv[0] );
+        return 1;
+    }
 
     while ((opt = getopt (argc, argv, "d:")) != -1)
         switch (opt) {

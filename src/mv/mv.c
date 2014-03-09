@@ -13,6 +13,7 @@
     Currently only works in active directory
     TODO: Add support for moving between directories
     TODO: Add support for moving directories
+    TODO: Check if destination file exists in order to prevent accidental overwrites
 */
 
 int main( int argc, char** argv ) {
@@ -48,8 +49,8 @@ int main( int argc, char** argv ) {
 
     if(remove (argv[1]) == 0){
         return 0;
-    } 
-    
+    }
+
     else {
         perror(argv[1]);
         return 1;
