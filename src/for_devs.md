@@ -4,20 +4,27 @@ Information for Devs
 This file provides some basic information and style guidelines intended for programmers on the speedutils project.
 To keep some uniformity, we need to have some standard code styling.
 
-For standard C code, please follow this structure (or some variation; not putting an extra space between parentheses and their contents is fine):
+~~For standard C code, please follow this structure (or some variation; not putting an extra space between parentheses and their contents is fine):~~
+We now use 1TBS.
 
     /* Adds arg1 with arg2 */
-    int function( int arg1, int arg2 ) {
+    int function(int arg1, int arg2) {
         int result = arg1 + arg2;
-        printf( "arg1(%d) and arg2(%d) added successfully!\n", arg1, arg2 );
+        printf("arg1(%d) and arg2(%d) added successfully!\n", arg1, arg2);
 
         return result;
     }
 
     int main() {
         // this calls function() with the arguments 1 and 2 and stores their value in "i"
-        int i = function( 1, 2 );
-        printf( "The result of adding 1 and 2: %d\n", i );
+        int i = function(1, 2);
+
+        if (1 == 1) {
+            printf("The result of adding 1 and 2: %d\n", i);
+        } else if (1 != 1) {
+            printf("Wat...\n");
+            return 2;
+        }
 
         return 0;
     }
