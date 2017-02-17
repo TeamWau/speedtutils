@@ -15,14 +15,14 @@ int main( int argc, char** argv ) {
         while( 1 ) {
             for( count = 1; count < argc; count++ ) {
                 if( count == argc - 1 ) {
-                    printf("%s", argv[count]);
+                    printf( "%s", argv[count] );
                 }
                 else {
                     printf( "%s ", argv[count] );
                 }
             }
 
-            printf("\n");
+            printf( "\n" );
         }
     }
 
